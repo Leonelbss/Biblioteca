@@ -38,3 +38,49 @@ void adicionarLivros(){
 
     printf("Livro adicionado com sucesso\n");
 }
+
+void listarLivros(){
+    
+    if(totalLivros ==0){
+        printf("Nenhum livro cadastrado.\n");
+        return;
+    }
+
+    for(int i = 0; i < totalLivros; i++) {
+        printf("\nLivro %d\n", i + 1);
+        printf("Titulo: %s\n", biblioteca[i].titulo);
+        printf("Autor: %s\n", biblioteca[i].nomeAutor);
+        printf("Ano: %d\n", biblioteca[i].anoPublicado);
+        printf("Quantidade: %d\n", biblioteca[i].quantidadeDisponivel);
+        printf("ID do Livro: %d\n", biblioteca[i].idDoLivro);
+    }
+}
+
+void alugarLivro(){
+    int codigo;
+    int encontrado = 0;
+
+    printf("Digite o Id do livro: ");
+    scanf("%d", idDoLivro);
+
+    for(int i = 0; i < totalLivros; i++){
+
+        if(biblioteca[i].idDoLivro == codigo){
+            encontrado = 1;
+            if(biblioteca[i]quantidadeDisponivel > 0){
+                
+                biblioteca[i].quantidadeDisponivel--;
+
+                printf("Livro alugado com sucesso\n");
+
+            }else{
+                
+                printf("Livro indisponivel\n");
+            }
+        }
+    }
+
+    if(!encontrado){
+        printf("Livro nao encontrado\n");
+    }
+}
