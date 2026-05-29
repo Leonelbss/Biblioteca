@@ -8,12 +8,13 @@ typedef struct {
     char nomeAutor[50];
     int anoPublicado;
     int quantidadeDisponivel;
-    int idDoLivro;
+    int codigoLivro;
 } Livro;
 
 void adicionarLivro();
 void listarLivros();
 void alugarLivro();
 void apagarLivro();
+void mostrarMenu();
 
 #endif
