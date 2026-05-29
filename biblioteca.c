@@ -84,3 +84,30 @@ void alugarLivro(){
         printf("Livro nao encontrado\n");
     }
 }
+
+void apagarLivro(){
+    int codigo;
+    int encontrado = 0;
+
+    printf("Digite o id do livro a apagar: ");
+    scanf("%d", &idDoLivro);
+
+    for(int i = 0; i < totalLivros; i++){
+        if(biblioteca[i].idDoLivro == codigo){
+            encontrado = 1;
+
+            for(int j = i; j < totalLivros - 1; j++){
+                biblioteca[j] = biblioteca[j + 1];
+            }
+
+            totalLivros--;
+
+            printf("Livro eleminado com sucesso\n");
+            break;
+        }
+    }
+
+    if(!encontrado){
+        printf("Livro nao encontrado.\n");
+    }
+}
