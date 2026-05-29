@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 #include "biblioteca.h"
 
 Livro biblioteca[MAX_LIVROS];
-
 int totalLivros = 0;
 
-void adicionarLivros(){
-    if(totalLivros >= MAX_LIVROS){
-        printf("Limites de livros atingido\n");
+void adicionarLivro() {
+
+    if(totalLivros >= MAX_LIVROS) {
+        printf("Limite de livros atingido!\n");
         return;
     }
 
@@ -30,89 +30,91 @@ void adicionarLivros(){
     printf("Quantidade disponivel: ");
     scanf("%d", &novoLivro.quantidadeDisponivel);
 
-    printf("ID do Livro: ");
-    scanf("%d", &novoLivro.idDoLivro);
+    printf("Codigo do livro: ");
+    scanf("%d", &novoLivro.codigoLivro);
 
     biblioteca[totalLivros] = novoLivro;
     totalLivros++;
 
-    printf("Livro adicionado com sucesso\n");
+    printf("Livro adicionado com sucesso!\n");
 }
 
-void listarLivros(){
-    
-    if(totalLivros ==0){
+void listarLivros() {
+
+    if(totalLivros == 0) {
         printf("Nenhum livro cadastrado.\n");
         return;
     }
 
     for(int i = 0; i < totalLivros; i++) {
+
         printf("\nLivro %d\n", i + 1);
         printf("Titulo: %s\n", biblioteca[i].titulo);
         printf("Autor: %s\n", biblioteca[i].nomeAutor);
         printf("Ano: %d\n", biblioteca[i].anoPublicado);
         printf("Quantidade: %d\n", biblioteca[i].quantidadeDisponivel);
-        printf("ID do Livro: %d\n", biblioteca[i].idDoLivro);
+        printf("Codigo: %d\n", biblioteca[i].codigoLivro);
     }
 }
 
-void alugarLivro(){
+void alugarLivro() {
+
     int codigo;
     int encontrado = 0;
 
-    printf("Digite o Id do livro: ");
+    printf("Digite o codigo do livro: ");
     scanf("%d", &codigo);
 
-    for(int i = 0; i < totalLivros; i++){
+    for(int i = 0; i < totalLivros; i++) {
 
-        if(biblioteca[i].idDoLivro == codigo){
+        if(biblioteca[i].codigoLivro == codigo) {
+
             encontrado = 1;
 
-            if(biblioteca[i].quantidadeDisponivel > 0){
+            if(biblioteca[i].quantidadeDisponivel > 0) {
 
                 biblioteca[i].quantidadeDisponivel--;
 
-                printf("Livro alugado com sucesso\n");
+                printf("Livro alugado com sucesso!\n");
 
-            }else{
+            } else {
 
-                printf("Livro indisponivel\n");
+                printf("Livro indisponivel.\n");
             }
-
-            break;
         }
     }
 
-    if(!encontrado){
-        printf("Livro nao encontrado\n");
+    if(!encontrado) {
+        printf("Livro nao encontrado.\n");
     }
 }
 
-void apagarLivro(){
+void apagarLivro() {
+
     int codigo;
     int encontrado = 0;
 
-    printf("Digite o id do livro a apagar: ");
+    printf("Digite o codigo do livro a apagar: ");
     scanf("%d", &codigo);
 
-    for(int i = 0; i < totalLivros; i++){
+    for(int i = 0; i < totalLivros; i++) {
 
-        if(biblioteca[i].idDoLivro == codigo){
+        if(biblioteca[i].codigoLivro == codigo) {
 
             encontrado = 1;
 
-            for(int j = i; j < totalLivros - 1; j++){
+            for(int j = i; j < totalLivros - 1; j++) {
                 biblioteca[j] = biblioteca[j + 1];
             }
 
             totalLivros--;
 
-            printf("Livro eliminado com sucesso\n");
+            printf("Livro apagado com sucesso!\n");
             break;
         }
     }
 
-    if(!encontrado){
+    if(!encontrado) {
         printf("Livro nao encontrado.\n");
     }
 }
