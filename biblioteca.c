@@ -61,22 +61,25 @@ void alugarLivro(){
     int encontrado = 0;
 
     printf("Digite o Id do livro: ");
-    scanf("%d", idDoLivro);
+    scanf("%d", &codigo);
 
     for(int i = 0; i < totalLivros; i++){
 
         if(biblioteca[i].idDoLivro == codigo){
             encontrado = 1;
-            if(biblioteca[i]quantidadeDisponivel > 0){
-                
+
+            if(biblioteca[i].quantidadeDisponivel > 0){
+
                 biblioteca[i].quantidadeDisponivel--;
 
                 printf("Livro alugado com sucesso\n");
 
             }else{
-                
+
                 printf("Livro indisponivel\n");
             }
+
+            break;
         }
     }
 
@@ -90,10 +93,12 @@ void apagarLivro(){
     int encontrado = 0;
 
     printf("Digite o id do livro a apagar: ");
-    scanf("%d", &idDoLivro);
+    scanf("%d", &codigo);
 
     for(int i = 0; i < totalLivros; i++){
+
         if(biblioteca[i].idDoLivro == codigo){
+
             encontrado = 1;
 
             for(int j = i; j < totalLivros - 1; j++){
@@ -102,7 +107,7 @@ void apagarLivro(){
 
             totalLivros--;
 
-            printf("Livro eleminado com sucesso\n");
+            printf("Livro eliminado com sucesso\n");
             break;
         }
     }
