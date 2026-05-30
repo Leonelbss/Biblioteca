@@ -130,7 +130,7 @@ void atualizarQuantidade(){
     printf("codigo do livro: ");
     scanf("%d",&codigoLivro);
 
-    for(int i = 0; i> totalLivros; i++){
+    for(int i = 0; i< totalLivros; i++){
         if (biblioteca[i].codigoLivro == codigoLivro){
             printf("nova quantidade:");
             scanf("%d",&novaQuantidade);
