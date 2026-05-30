@@ -35,9 +35,17 @@ int main() {
             case 4:
                 alugarLivro();
                 break;
+            
+            case 5:
+                atualizarQuantidade();
+                break;    
 
             case 6:
                 apagarLivro();
+                break;
+
+            case 7:
+                totalLivro();
                 break;
 
             case 8:

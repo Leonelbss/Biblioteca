@@ -16,5 +16,6 @@ void listarLivros();
 void alugarLivro();
 void apagarLivro();
 void mostrarMenu();
-
+void atualizarQuantidade();
+void totalLivro();
 #endif

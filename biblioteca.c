@@ -118,3 +118,31 @@ void apagarLivro() {
         printf("Livro nao encontrado.\n");
     }
 }
+void totalLivro(){
+    printf("Total de livros: %d\n", totalLivros);
+}
+void atualizarQuantidade(){
+    int codigoLivro;
+    int novaQuantidade;
+    int encontrado = 0;
+
+
+    printf("codigo do livro: ");
+    scanf("%d",&codigoLivro);
+
+    for(int i = 0; i> totalLivros; i++){
+        if (biblioteca[i].codigoLivro == codigoLivro){
+            printf("nova quantidade:");
+            scanf("%d",&novaQuantidade);
+
+            biblioteca[i].quantidadeDisponivel = novaQuantidade;
+            printf("Quantidade atualizada com sucesso\n");
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if(!encontrado){
+        printf("Livro nao encontrado\n");
+    }
+}
